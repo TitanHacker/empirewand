@@ -32,6 +32,9 @@ public class Main extends JavaPlugin implements Listener{
 		Logger logger = Logger.getLogger("Minecraft");
 		logger.info(pdffile.getName() + pdffile.getVersion() + "Was enabled.");	
 		spells.add("PotionWave");
+		
+		//you need to register the event
+		getServer().getPluginManager().registerEvents(this, this);
 	}
 	
 	public void onDisable() {
