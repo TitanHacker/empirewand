@@ -1,0 +1,15 @@
+name: Empirewandplus
+version: 0.0.1
+author: Timislol12
+main: me.Timislol12.empirewand.Main
+prefix: Empirewand+
+
+commands: 
+   ew:
+    description: Get a empire wand
+    usage: /<command>
+    
+   permissions: 
+    empirewand.use:
+    description: the permission is empirewand.use
+    default: false
