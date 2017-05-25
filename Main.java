@@ -25,6 +25,7 @@ public class Main extends JavaPlugin implements Listener{
 	public List<String> spells = new ArrayList<String>();
 	public getTargets  getTargets = new getTargets();
 	public PotionWave PotionWave = new PotionWave(this);
+	public Confuse confuse = new Confuse(this);
 	
 	public void onEnable() {
 		plugin = this;
@@ -32,6 +33,7 @@ public class Main extends JavaPlugin implements Listener{
 		Logger logger = Logger.getLogger("Minecraft");
 		logger.info(pdffile.getName() + pdffile.getVersion() + "Was enabled.");	
 		spells.add("PotionWave");
+		spells.add("Confuse");
 		
 		//you need to register the event
 		getServer().getPluginManager().registerEvents(this, this);
@@ -78,7 +80,7 @@ public class Main extends JavaPlugin implements Listener{
 		}else {
 			stack.setDurability((short) 0);
 		}
-		ChatUtilities.sendMessage(p, "Gesselecteerd: " + spells.get(SpellSelected));
+		ChatUtilities.sendMessage(p, ChatColor.AQUA + spells.get(SpellSelected) + ChatColor.GREEN + " sellected");
 		
 	 }if(e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
 		  Player p = e.getPlayer();
@@ -87,7 +89,12 @@ public class Main extends JavaPlugin implements Listener{
 		  int SpellSelected = stack.getDurability();
 		  if(SpellSelected == 0)
 		  this.PotionWave.onCast(p);
+	 }else if(SpellSelected == 1){
+		 this.Confuse.onCast(p);
 	 }
+
 	}
+
+
 
 }
